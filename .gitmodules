@@ -1,3 +1,6 @@
 [submodule "ext/appui"]
 	path = ext/appui
 	url = git://github.com/jgallen23/AppUI.git
+[submodule "ext/qunit"]
+	path = ext/qunit
+	url = http://github.com/jquery/qunit.git
