@@ -5,5 +5,5 @@ sh build
 popd
 cp ext/appui/lib/* www/ui/compressed/
 #python ext/sprite_generator/sprite_generator.py sprites.yaml
-#python ext/appui/external/uimin/uimin.py config.yaml
+python ext/appui/external/uimin/uimin.py config.yaml
 #python run_server.py generate www/index.html

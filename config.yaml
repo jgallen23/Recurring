@@ -1,0 +1,38 @@
+output_dir: 'www/ui/compressed'
+js:
+  #phonegap_plugins:
+    #files:
+      #- 'ext/phonegap-plugins/iPhone/Badge/Badge.js'
+      #- 'ext/phonegap-plugins/iPhone/ClipboardPlugin/clipboardPlugin.js'
+  recurring:
+    files:
+      - 'www/ui/scripts/date.js'
+      - 'www/models/task.js'
+  #scribbletasks:
+    #files:
+      #- 'www/ui/scripts/iscroll.js'
+      #- 'www/ui/scripts/debug.js'
+      #- 'www/ui/scripts/SwipeController.js'
+      #- 'www/ui/scripts/date-en-US.js'
+      #- 'www/ui/scripts/ScribbleTasksApp.js'
+      #- 'www/dataproviders/projects.js'
+      #- 'www/dataproviders/tasks.js'
+      #- 'www/models/project.js'
+      #- 'www/models/task.js'
+      #- 'www/controllers/add_task.js'
+      #- 'www/controllers/project.js'
+      #- 'www/controllers/search.js'
+      #- 'www/controllers/project_list.js'
+      #- 'www/controllers/task_menu.js'
+      #- 'www/controllers/debug_controller.js'
+      #- 'www/views/scribble.js'
+css:
+  recurring:
+    files:
+      - 'www/ui/stylesheets/common.css'
+  #scribbletasks:
+    #files:
+      #- 'www/ui/stylesheets/common.css'
+      #- 'www/ui/stylesheets/icons.css'
+      #- 'www/ui/stylesheets/paper.css'
+      

@@ -19,13 +19,13 @@ def generate_template(debug = False, phonegap = False, remote = ''):
     data = {
         'phonegap': phonegap,
         'debug': debug,
-        'appui_files': uimin.get_file_list('ext/appui/config.yaml', 'js', 'app.lawnchair', debug = debug),
+        'appui_files': uimin.get_file_list('ext/appui/config.yaml', 'js', 'app.persistence', debug = debug),
         'appui_path': "ext/appui" if debug else "ui/compressed",
         'js_files': uimin.get_file_list('config.yaml', 'js', 'recurring', debug = debug),
         'js_path': '' if debug else 'ui/compressed',
         'css_files': uimin.get_file_list('config.yaml', 'css', 'recurring', debug = debug, format = "plain"),
         'css_path': '' if debug else 'ui/compressed',
-        'phonegap_plugin_files': uimin.get_file_list('config.yaml', 'js', 'phonegap_plugins', debug = debug),
+        'phonegap_plugin_files': [],#uimin.get_file_list('config.yaml', 'js', 'phonegap_plugins', debug = debug),
         'remote': remote,
     }
     return template.render(**data)
