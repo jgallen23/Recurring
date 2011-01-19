@@ -8,6 +8,8 @@ js:
     files:
       - 'www/ui/scripts/date.js'
       - 'www/models/task.js'
+      - 'www/views/task_list.js'
+      - 'www/controllers/task_list.js'
   #scribbletasks:
     #files:
       #- 'www/ui/scripts/iscroll.js'

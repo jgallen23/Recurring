@@ -20,6 +20,13 @@ var Task = persistence.define('Task', {
 });
 Task.prototype.getNextDue = function() {
 }
+Task.prototype.repeatString = function() {
+    for (var str in Repeat) {
+        if (Repeat[str] == this.repeat)
+            return str
+    }
+    return "";
+}
 Task.prototype.complete = function() {
 	var d;
 	this.lastDue = new Date(this.due.getTime());

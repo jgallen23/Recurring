@@ -1,0 +1,20 @@
+<div id="TaskList">
+    <header> 
+        <h1>Recurring</h1>
+        <button data-action="add">+</button>
+    </header>	
+    <div role="content"></div>
+    <script type="text/html" id="jstTaskList">
+        <ul>
+        {! for (var i = 0, c = tasks.length; i < c; i++) { var task = tasks[i]; !}
+            <li data-index="{!= i !}" data-id="{!= task.id !}">
+                <input type="checkbox" data-action="complete"/>
+                <span data-action="edit" class="name">{!= task.name !}</span>
+                <span class="repeat">{!= task.repeatString() !}</span>
+                <span class="due">{!= task.due !}</span>
+                <button data-action="delete">Delete</button>
+            </li>
+        {! } !}
+        </ul>
+    </script>
+</div>

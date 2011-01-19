@@ -13,8 +13,8 @@
 		<script src="http://{{ remote }}:8080/target/target-script.js"></script>
 		{% endif %}
 	</head>
-    <body class="{% if debug %} Debug{% endif %}">
-	
+    <body class="list {% if debug %} Debug{% endif %}">
+		{% include "task_list.html" %}
 		{% if phonegap %}
 			<script src="phonegap.js"></script>
 			{% for file in phonegap_plugin_files %}
@@ -28,6 +28,12 @@
 		<script src="{{ js_path }}/{{ file }}"></script>
 		{% endfor %}
 		<script>
+			ui.ready(function() {
+				persistence.store.websql.config(persistence, 'Recurring', 'RecurringDb', 5 * 1024 * 1024);
+				persistence.schemaSync(function(tx) {
+					new TaskListController('TaskList');
+				});
+			});
 		</script>
 	</body>
 </html>
