@@ -3,7 +3,8 @@ var TaskListController = ui.PageController.extend({
         this.view = new TaskListView(element);
         this._super(element);
         this._tasks = null;
-        this._loadTasks();
+        this.bind("visible", this._loadTasks);
+        this.trigger("visible");
     },
     _loadTasks: function() {
         var self = this;
@@ -13,6 +14,15 @@ var TaskListController = ui.PageController.extend({
         });
     },
     add: function(e) {
+        var editTaskController = new EditTaskController("EditTask");
+        this.slideIn(editTaskController);
+    },
+    edit: function(e) {
+        var self = this;
+        var index = e.target.parentNode.getAttribute('data-index');
+        var task = self._tasks[index];
+        var editTaskController = new EditTaskController("EditTask", task);
+        this.slideIn(editTaskController);
     },
     complete: function(e) {
         var self = this;

@@ -1,0 +1,23 @@
+body { margin: 0; padding: 0; font-size: 13px; font-family: 'Arial' }
+
+/* HBox */
+.HBox { display: -webkit-box; }
+
+#PageContainer { overflow: hidden; position: relative; }
+
+/* PAGE */
+.Page { position: absolute; top: 0; width: 100%; }
+    .Page header { height: 35px; line-height: 35px; color: #fff; text-align: center;  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b5bdc8), color-stop(36%,#828c95), color-stop(100%,#28343b)); }
+    .Page header h1 { font-size: 18px; margin: 0 }
+    .Page header .right { float: right; }
+    .Page header .left { float: left; }
+
+/* Transistions */
+.Page { -webkit-transform: translateX(100%); }
+.Page:first-child { -webkit-transform: translateX(0); }
+
+
+.List { list-style: none; margin: 0; padding: 0}
+    .List li { margin: 10px 0; }
+        .List li span { display: block; }
+        .List li .name { -webkit-box-flex: 1 }

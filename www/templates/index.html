@@ -13,8 +13,11 @@
 		<script src="http://{{ remote }}:8080/target/target-script.js"></script>
 		{% endif %}
 	</head>
-    <body class="list {% if debug %} Debug{% endif %}">
-		{% include "task_list.html" %}
+    <body class="{% if debug %} Debug{% endif %}">
+		<div id="PageContainer">
+			{% include "task_list.html" %}
+			{% include "edit_task.html" %}
+		</div>
 		{% if phonegap %}
 			<script src="phonegap.js"></script>
 			{% for file in phonegap_plugin_files %}
@@ -33,6 +36,11 @@
 				persistence.schemaSync(function(tx) {
 					new TaskListController('TaskList');
 				});
+			});
+			ui.resize(function(width, height) {
+				var container = document.getElementById("PageContainer");
+				container.style.width = width+"px";
+				container.style.height = height+"px";
 			});
 		</script>
 	</body>

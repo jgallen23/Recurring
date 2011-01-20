@@ -19,6 +19,33 @@ var Task = persistence.define('Task', {
 	lastDue: 'DATE'
 });
 Task.prototype.getNextDue = function() {
+    var d;
+	if (this.repeatType == RepeatType.every) 
+		d = this.due;
+	else if (this.repeatType == RepeatType.after)
+		d = Date.today();
+	
+	switch(this.repeat) {
+		case Repeat.daily:
+			d = d.addDays(1);
+			break;
+		case Repeat.weekly:
+			d = d.addWeeks(1);
+			break;
+		case Repeat.monthly:
+			d = d.addMonths(1);
+			break;
+		case Repeat.yearly:
+			d = d.addYears(1);
+			break;
+		case Repeat.weekday:
+			if (d.is().friday())
+				d = d.next().monday();
+			else
+				d = d.addDays(1);
+			break;
+	}
+    return d;
 }
 Task.prototype.repeatString = function() {
     for (var str in Repeat) {
@@ -28,34 +55,8 @@ Task.prototype.repeatString = function() {
     return "";
 }
 Task.prototype.complete = function() {
-	var d;
 	this.lastDue = new Date(this.due.getTime());
-	if (this.repeatType == RepeatType.every) 
-		d = this.due;
-	else if (this.repeatType == RepeatType.after)
-		d = Date.today();
-	
-	switch(this.repeat) {
-		case Repeat.daily:
-			this.due = d.addDays(1);
-			break;
-		case Repeat.weekly:
-			this.due = d.addWeeks(1);
-			break;
-		case Repeat.monthly:
-			this.due = d.addMonths(1);
-			break;
-		case Repeat.yearly:
-			this.due = d.addYears(1);
-			break;
-		case Repeat.weekday:
-			if (d.is().friday())
-				this.due = d.next().monday();
-			else
-				this.due = d.addDays(1);
-			break;
-	}
-	
+    this.due = this.getNextDue();	
 }
 Task.prototype.undoComplete = function() {
 	this.due = this.lastDue;

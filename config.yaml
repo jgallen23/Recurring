@@ -7,9 +7,11 @@ js:
   recurring:
     files:
       - 'www/ui/scripts/date.js'
+      - 'www/ui/scripts/pretty.js'
       - 'www/models/task.js'
       - 'www/views/task_list.js'
       - 'www/controllers/task_list.js'
+      - 'www/controllers/edit_task.js'
   #scribbletasks:
     #files:
       #- 'www/ui/scripts/iscroll.js'
@@ -32,6 +34,7 @@ css:
   recurring:
     files:
       - 'www/ui/stylesheets/common.css'
+      - 'www/ui/stylesheets/task_list.css'
   #scribbletasks:
     #files:
       #- 'www/ui/stylesheets/common.css'

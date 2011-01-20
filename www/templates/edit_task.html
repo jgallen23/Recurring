@@ -1,0 +1,39 @@
+<div id="EditTask" class="Page">
+    <header>
+        <button data-action="cancel" class="left">Cancel</button>
+        <button data-action="save" class="right">Save</button>
+        <h1>Edit Task</h1>
+    </header>
+    <div role="content">
+    </div>
+    <script type="text/html" id="jstEditTask">
+        <form>
+            <input id="EditTaskName" name="name" type="text" placeholder="Task Name" value="{!= task.name !}"/>
+            <fieldset>
+                <label id="EditTaskDue">Due</label>
+                <input id="EditTaskDue" name="due" type="text" value="{!= dateFormat(task.due) !}"/>
+            </fieldset>
+            <fieldset>
+                <label>Type</label>
+                <select id="EditTaskRepeatType" name="repeatType">
+                    {! for (var type in RepeatType) { !}
+                        <option {!= (RepeatType[type] == task.repeatType)?"selected":"" !} value="{!= RepeatType[type] !}" >{!= type !}</option>
+                    {! } !}
+                </select>
+            </fieldset>
+            <fieldset>
+                <label>Repeat</label>
+                <select id="EditTaskRepeat" name="repeat">
+                    {! for (var repeat in Repeat) { !}
+                        <option {!= (Repeat[repeat] == task.repeat)?"selected":"" !} value="{!= Repeat[repeat] !}">{!= repeat !}</option>
+                    {! } !}
+                </select>
+            </fieldset>
+            <fieldset>
+                <label>Next Due</label>
+                <span>{!= task.getNextDue() !}</span>
+            </fieldset>
+        </form>
+    </script>
+</div>
+
