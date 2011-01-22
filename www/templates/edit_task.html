@@ -8,9 +8,11 @@
     </div>
     <script type="text/html" id="jstEditTask">
         <form>
-            <input id="EditTaskName" name="name" type="text" placeholder="Task Name" value="{!= task.name !}"/>
+			<fieldset>
+				<input id="EditTaskName" name="name" type="text" placeholder="Enter Task Name" value="{!= task.name !}"/>
+			</fieldset>
             <fieldset>
-                <label id="EditTaskDue">Due</label>
+                <label for="EditTaskDue">Due</label>
                 <input id="EditTaskDue" name="due" type="text" value="{!= dateFormat(task.due) !}"/>
             </fieldset>
             <fieldset>
@@ -31,7 +33,7 @@
             </fieldset>
             <fieldset>
                 <label>Next Due</label>
-                <span>{!= task.getNextDue() !}</span>
+                <span>{!= task.getNextDue().toString("MM/dd/yy") !}</span>
             </fieldset>
         </form>
     </script>

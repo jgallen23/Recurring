@@ -9,10 +9,9 @@
         {! for (var i = 0, c = tasks.length; i < c; i++) { var task = tasks[i]; !}
             <li class="HBox" data-index="{!= i !}" data-id="{!= task.id !}">
                 <input type="checkbox" data-action="complete"/>
-                <div data-action="edit" class="name">{!= task.name !}</div>
-                <div class="repeat">{!= task.repeatString() !}</div>
-                <div class="due">{!= task.due !}</div>
-                <button data-action="edit">Edit</button>
+				<div class="name">{!= task.name !}</div>
+                <div class="comment">Next Due: {!= task.due.toString("MM/dd") !}</div>
+                <button class="details" data-action="edit"></button>
             </li>
         {! } !}
         </ul>

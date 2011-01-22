@@ -36,6 +36,7 @@ css:
     files:
       - 'www/ui/stylesheets/common.css'
       - 'www/ui/stylesheets/task_list.css'
+      - 'www/ui/stylesheets/edit_task.css'
   #scribbletasks:
     #files:
       #- 'www/ui/stylesheets/common.css'
