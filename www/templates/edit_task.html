@@ -13,7 +13,8 @@
 			</fieldset>
             <fieldset>
                 <label for="EditTaskDue">Due</label>
-                <input id="EditTaskDue" name="due" type="text" value="{!= dateFormat(task.due) !}"/>
+				<span data-action="setDate">{!= dateFormat(task.due) !}</span>
+				<input type="hidden" name="due" value="{!= dateFormat(task.due) !}"/>
             </fieldset>
             <fieldset>
                 <label>Type</label>

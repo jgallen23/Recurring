@@ -22,5 +22,25 @@ var EditTaskController = ui.PageController.extend({
         persistence.flush(function() {
             self.slideOut();
         });
+    },
+    setDate: function() {
+		var today = Date.today().addDays(-1);
+		var dates = {};
+		for (var i = 0; i < 100; i++) {
+			var d = today.addDays(1);
+			var key = d.toString("MM/dd/yy");
+			var value = d.toString("ddd MMM d");
+			dates[key] = value;
+		}
+        SpinningWheel.addSlot(dates, 'right');
+
+		var self = this;
+		SpinningWheel.setCancelAction(function() {
+		});
+		SpinningWheel.setDoneAction(function() {
+			var vals = SpinningWheel.getSelectedValues()
+			alert(vals.keys[0]);
+		});
+        SpinningWheel.open();
     }
 });
