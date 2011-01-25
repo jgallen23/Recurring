@@ -1,19 +1,31 @@
 <div id="TaskList" class="Page">
     <header> 
-        <button class="right" data-action="add">+</button>
+        <button class="large right" data-action="add">+</button>
         <h1>Recurring</h1>
     </header>	
-    <div role="content"></div>
+	<div role="content">
+		<ul class="List"></ul>
+	</div>
     <script type="text/html" id="jstTaskList">
-        <ul class="List">
-        {! for (var i = 0, c = tasks.length; i < c; i++) { var task = tasks[i]; !}
+			{! var lastHeader = '';
+				for (var i = 0, c = tasks.length; i < c; i++) { var task = tasks[i]; !}
+				{! if (task.isOverdue()) { if(lastHeader != "overdue") { lastHeader = "overdue"; !}
+				<li class="header">Overdue</li>
+				{! } } else if (task.isDueToday()) { if (lastHeader != "today") { lastHeader = "today"; !}
+				<li class="header">Today</li>
+				{! } } else if (task.isDueTomorrow()) { if (lastHeader != "tomorrow") { lastHeader = "tomorrow"; !}
+				<li class="header">Tomorrow</li>
+			{! } } else if (lastHeader != "future") {  lastHeader = "future"; !}
+				<li class="header">Future</li>
+			{! } !}
             <li class="HBox" data-index="{!= i !}" data-id="{!= task.id !}">
                 <input type="checkbox" data-action="complete"/>
-				<div class="name">{!= task.name !}</div>
-                <div class="comment">Next Due: {!= (task.due)?task.due.toString("MM/dd"):"" !}</div>
+				<div class="name">
+					{!= task.name || "Task" !}
+					<div class="comment">Due: {!= prettyDate(task.due) !} ({!= task.repeatString() !})</div>
+				</div>
                 <button class="details" data-action="edit"></button>
             </li>
         {! } !}
-        </ul>
     </script>
 </div>

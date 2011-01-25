@@ -1,10 +1,11 @@
 #EditTask fieldset { display: -webkit-box; border: 1px solid #e0e0e0; border-width: 0 0 1px 0;  width: 100%; -webkit-box-orient: horizontal;  padding: 10px 5px; margin: 0; height: 30px; line-height: 30px; }
 
-	#EditTask input[type="text"] { height: 24px; border: 0; font-size: 24px; }
-	#EditTask fieldset label { display: block; width: 30%; float: left; color: #6a737d }
+	#EditTask input[type="text"] { height: 24px; border: 0; font-size: 24px; margin-left: 10px; }
+	#EditTask fieldset label { display: block; width: 25%; float: left; color: #6a737d; font-size: 14px; padding-left: 10px; }
 	#EditTask fieldset input,
 	#EditTask fieldset select { width: 60%; display: block; }
 
 	#EditTask select,
-    #EditTask input { -webkit-appearance: none; border: 0; }
+    #EditTask input,
+	#EditTask span { -webkit-appearance: none; border: 0; font-size: 20px; padding: 0; margin: 0; }
 	#EditTask span { display: block; }

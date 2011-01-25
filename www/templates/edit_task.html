@@ -1,7 +1,7 @@
 <div id="EditTask" class="Page">
     <header>
         <button data-action="cancel" class="left">Cancel</button>
-        <button data-action="save" class="right">Save</button>
+        <button data-action="save" class="highlight right">Save</button>
         <h1>Edit Task</h1>
     </header>
     <div role="content">
@@ -14,7 +14,7 @@
             <fieldset>
                 <label for="EditTaskDue">Due</label>
 				<span id="EditTaskDue" data-action="setDate">{!= dateFormat(task.due) !}</span>
-				<input type="hidden" name="due" value="{!= dateFormat(task.due) !}"/>
+				<input type="hidden" name="due" value="{!= dateFormatBasic(task.due) !}"/>
             </fieldset>
             <fieldset>
                 <label>Type</label>

@@ -61,3 +61,12 @@ Task.prototype.complete = function() {
 Task.prototype.undoComplete = function() {
 	this.due = this.lastDue;
 }
+Task.prototype.isDueToday = function() {
+	return (this.due.getTime() == Date.today().getTime());
+}
+Task.prototype.isDueTomorrow = function() {
+	return (this.due.getTime() == Date.today().addDays(1).getTime());
+}
+Task.prototype.isOverdue = function() {
+	return ((Date.today().getTime() - this.due.getTime()) > 0) 
+}

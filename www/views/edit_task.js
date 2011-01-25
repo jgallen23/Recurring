@@ -15,10 +15,19 @@ var EditTaskView = ui.View.extend({
             data.task = task;
         }
 		data.dateFormat = this.dateFormat;
+		data.dateFormatBasic = this.dateFormatBasic;
 		console.log(data);
         this.renderAt("[role='content']", "jstEditTask", data);
+		this.find("form").onsubmit = function() {
+			return false;
+		}
     },
 	dateFormat: function(date) {
+		if (date)
+			return date.toString("MMMM dd, yyyy");
+		return "";
+	},
+	dateFormatBasic: function(date) {
 		if (date)
 			return date.toString("MM/dd/yy");
 		return "";
@@ -33,9 +42,15 @@ var EditTaskView = ui.View.extend({
         task.due = Date.parse(form.due.value);
         return task;
 	},
+	getDate: function() {
+        var form = this.find("form");
+		return Date.parse(form.due.value);
+	},
 	setDate: function(dateString) {
         var form = this.find("form");
-		form.due.value = dateString;
-		this.find("#EditTaskDue").innerHTML = dateString;
+		var date = Date.parse(dateString);
+		
+		form.due.value = this.dateFormatBasic(date);
+		this.find("#EditTaskDue").innerHTML = this.dateFormat(date);
 	}
 });

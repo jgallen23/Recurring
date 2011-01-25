@@ -6,6 +6,7 @@ js:
       #- 'ext/phonegap-plugins/iPhone/ClipboardPlugin/clipboardPlugin.js'
   recurring:
     files:
+      - 'www/ui/scripts/iscroll.js'
       - 'www/ui/scripts/spinningwheel.js'
       - 'www/ui/scripts/date.js'
       - 'www/ui/scripts/pretty.js'

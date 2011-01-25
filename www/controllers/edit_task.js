@@ -40,9 +40,12 @@ var EditTaskController = ui.PageController.extend({
 			years[y+i] = y+i;
 		}
 
-        SpinningWheel.addSlot(months, 'right');
-        SpinningWheel.addSlot(days, 'right');
-        SpinningWheel.addSlot(years, 'right');
+		var selectedDate = this.view.getDate();
+        SpinningWheel.addSlot(months, 'right', selectedDate.getMonth()+1);
+        SpinningWheel.addSlot(days, 'right', selectedDate.getDate());
+        SpinningWheel.addSlot(years, 'right', selectedDate.getFullYear());
+
+
 
 		var self = this;
 		SpinningWheel.setCancelAction(function() {

@@ -32,15 +32,18 @@
 		{% endfor %}
 		<script>
 			ui.ready(function() {
+				ui.mobile.disableScrollingPermanently();
 				persistence.store.websql.config(persistence, 'Recurring', 'RecurringDb', 5 * 1024 * 1024);
 				persistence.schemaSync(function(tx) {
 					new TaskListController('TaskList');
 				});
 			});
 			ui.resize(function(width, height) {
+				console.log(height);
 				var container = document.getElementById("PageContainer");
 				container.style.width = width+"px";
 				container.style.height = height+"px";
+				document.querySelector(".Page").height = height+"px";
 			});
 		</script>
 	</body>

@@ -1,5 +1,5 @@
 #TaskList {}
-#TaskList li input { display: block; margin-top: 7px; margin-left: 5px;  }
+#TaskList li input { display: block; margin-top: 14px; margin-left: 10px;  }
 #TaskList li .name { margin-left: 10px; }
-#TaskList li .comment { margin-right: 20px; }
-#TaskList li button { display: block; }
+#TaskList li button { display: block; margin-top: 7px; margin-right: 10px; }
+#TaskList li { height: 45px; }

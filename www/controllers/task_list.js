@@ -8,7 +8,7 @@ var TaskListController = ui.PageController.extend({
     },
     _loadTasks: function() {
         var self = this;
-        Task.all().list(null, function(tasks) {
+        Task.all().order("due", true).list(null, function(tasks) {
             self._tasks = tasks;
             self.view.render(tasks);
         });
