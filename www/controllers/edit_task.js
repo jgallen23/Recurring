@@ -25,21 +25,32 @@ var EditTaskController = ui.PageController.extend({
     },
     setDate: function() {
 		var today = Date.today().addDays(-1);
-		var dates = {};
-		for (var i = 0; i < 100; i++) {
-			var d = today.addDays(1);
-			var key = d.toString("MM/dd/yy");
-			var value = d.toString("ddd MMM d");
-			dates[key] = value;
+		var months = {};
+		var days = {};
+		var years = {};
+
+		for (var i = 1, c = Date.CultureInfo.monthNames.length; i <= c; i++) {
+			months[i] = Date.CultureInfo.monthNames[i-1];
 		}
-        SpinningWheel.addSlot(dates, 'right');
+		for (var i = 1, c = 31; i <= c; i++) {
+			days[i] = i;
+		}
+		var y = Date.today().getFullYear(); 
+		for (var i = 0, c = 3; i < c; i++) {
+			years[y+i] = y+i;
+		}
+
+        SpinningWheel.addSlot(months, 'right');
+        SpinningWheel.addSlot(days, 'right');
+        SpinningWheel.addSlot(years, 'right');
 
 		var self = this;
 		SpinningWheel.setCancelAction(function() {
 		});
 		SpinningWheel.setDoneAction(function() {
 			var vals = SpinningWheel.getSelectedValues()
-			alert(vals.keys[0]);
+			var d = ui.stringFormat("{0}/{1}/{2}", vals.keys[0], vals.keys[1], vals.keys[2]);
+			self.view.setDate(d);
 		});
         SpinningWheel.open();
     }

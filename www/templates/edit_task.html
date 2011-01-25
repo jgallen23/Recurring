@@ -13,7 +13,7 @@
 			</fieldset>
             <fieldset>
                 <label for="EditTaskDue">Due</label>
-				<span data-action="setDate">{!= dateFormat(task.due) !}</span>
+				<span id="EditTaskDue" data-action="setDate">{!= dateFormat(task.due) !}</span>
 				<input type="hidden" name="due" value="{!= dateFormat(task.due) !}"/>
             </fieldset>
             <fieldset>
@@ -31,10 +31,6 @@
                         <option {!= (Repeat[repeat] == task.repeat)?"selected":"" !} value="{!= Repeat[repeat] !}">{!= repeat !}</option>
                     {! } !}
                 </select>
-            </fieldset>
-            <fieldset>
-                <label>Next Due</label>
-                <span>{!= task.getNextDue().toString("MM/dd/yy") !}</span>
             </fieldset>
         </form>
     </script>

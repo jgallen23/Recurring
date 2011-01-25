@@ -10,7 +10,7 @@
             <li class="HBox" data-index="{!= i !}" data-id="{!= task.id !}">
                 <input type="checkbox" data-action="complete"/>
 				<div class="name">{!= task.name !}</div>
-                <div class="comment">Next Due: {!= task.due.toString("MM/dd") !}</div>
+                <div class="comment">Next Due: {!= (task.due)?task.due.toString("MM/dd"):"" !}</div>
                 <button class="details" data-action="edit"></button>
             </li>
         {! } !}

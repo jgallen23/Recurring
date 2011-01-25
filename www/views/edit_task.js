@@ -5,7 +5,7 @@ var EditTaskView = ui.View.extend({
                 name: '',
                 repeatType: '',
                 repeat: '',
-                due: '',
+                due: Date.today(),
                 getNextDue: function() { 
                     return '';
                 }
@@ -14,14 +14,15 @@ var EditTaskView = ui.View.extend({
         if (task) {
             data.task = task;
         }
-        data.dateFormat = function(date) {
-            if (date)
-                return date.toString("MM/dd/yy");
-            return "";
-        }
-        console.log(data);
+		data.dateFormat = this.dateFormat;
+		console.log(data);
         this.renderAt("[role='content']", "jstEditTask", data);
     },
+	dateFormat: function(date) {
+		if (date)
+			return date.toString("MM/dd/yy");
+		return "";
+	},
     getTaskData: function() {
         var task = {};
         var form = this.find("form");
@@ -31,5 +32,10 @@ var EditTaskView = ui.View.extend({
         task.repeat = form.repeat.value;
         task.due = Date.parse(form.due.value);
         return task;
-    }
+	},
+	setDate: function(dateString) {
+        var form = this.find("form");
+		form.due.value = dateString;
+		this.find("#EditTaskDue").innerHTML = dateString;
+	}
 });

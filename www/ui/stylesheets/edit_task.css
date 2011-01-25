@@ -7,3 +7,4 @@
 
 	#EditTask select,
     #EditTask input { -webkit-appearance: none; border: 0; }
+	#EditTask span { display: block; }

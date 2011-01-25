@@ -247,11 +247,13 @@ var SpinningWheel = {
 
 	getSelectedValues: function () {
 		var index, count,
-		    i, l,
+		    l,
 			keys = [], values = [];
 
-		for (i in this.slotEl) {
+		for (var i = 0, c = this.slotEl.length; i < c; i++) {
 			// Remove any residual animation
+			if (!this.slotEl[i])
+				continue;
 			this.slotEl[i].removeEventListener('webkitTransitionEnd', this, false);
 			this.slotEl[i].style.webkitTransitionDuration = '0';
 

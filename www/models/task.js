@@ -21,7 +21,7 @@ var Task = persistence.define('Task', {
 Task.prototype.getNextDue = function() {
     var d;
 	if (this.repeatType == RepeatType.every) 
-		d = this.due;
+		d = this.due || Date.today();
 	else if (this.repeatType == RepeatType.after)
 		d = Date.today();
 	
