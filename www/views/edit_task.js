@@ -1,4 +1,8 @@
 var EditTaskView = ui.View.extend({
+    init: function(element) {
+        this._super(element);
+		this.scroller = new iScroll(this.find("[role='content'] form"), { checkDOMChanges: false, desktopCompatibility: false }); 
+    },
     populate: function(task) {
         var data = { 
             task: {
@@ -17,7 +21,8 @@ var EditTaskView = ui.View.extend({
 		data.dateFormat = this.dateFormat;
 		data.dateFormatBasic = this.dateFormatBasic;
 		console.log(data);
-        this.renderAt("[role='content']", "jstEditTask", data);
+        this.renderAt("[role='content'] form", "jstEditTask", data);
+        setTimeout(function () { self.scroller.refresh(); }, 0);
 		this.find("form").onsubmit = function() {
 			return false;
 		}

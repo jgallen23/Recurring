@@ -5,34 +5,33 @@
         <h1>Edit Task</h1>
     </header>
     <div role="content">
+		<form></form>
     </div>
     <script type="text/html" id="jstEditTask">
-        <form>
-			<fieldset>
-				<input id="EditTaskName" name="name" type="text" placeholder="Enter Task Name" value="{!= task.name !}"/>
-			</fieldset>
-            <fieldset>
-                <label for="EditTaskDue">Due</label>
-				<span id="EditTaskDue" data-action="setDate">{!= dateFormat(task.due) !}</span>
-				<input type="hidden" name="due" value="{!= dateFormatBasic(task.due) !}"/>
-            </fieldset>
-            <fieldset>
-                <label>Type</label>
-                <select id="EditTaskRepeatType" name="repeatType">
-                    {! for (var type in RepeatType) { !}
-                        <option {!= (RepeatType[type] == task.repeatType)?"selected":"" !} value="{!= RepeatType[type] !}" >{!= type !}</option>
-                    {! } !}
-                </select>
-            </fieldset>
-            <fieldset>
-                <label>Repeat</label>
-                <select id="EditTaskRepeat" name="repeat">
-                    {! for (var repeat in Repeat) { !}
-                        <option {!= (Repeat[repeat] == task.repeat)?"selected":"" !} value="{!= Repeat[repeat] !}">{!= repeat !}</option>
-                    {! } !}
-                </select>
-            </fieldset>
-        </form>
+		<fieldset>
+			<input id="EditTaskName" name="name" type="text" placeholder="Enter Task Name" value="{!= task.name !}"/>
+		</fieldset>
+		<fieldset>
+			<label for="EditTaskDue">Due</label>
+			<span id="EditTaskDue" data-action="setDate">{!= dateFormat(task.due) !}</span>
+			<input type="hidden" name="due" value="{!= dateFormatBasic(task.due) !}"/>
+		</fieldset>
+		<fieldset>
+			<label>Type</label>
+			<select id="EditTaskRepeatType" name="repeatType">
+				{! for (var type in RepeatType) { !}
+					<option {!= (RepeatType[type] == task.repeatType)?"selected":"" !} value="{!= RepeatType[type] !}" >{!= type !}</option>
+				{! } !}
+			</select>
+		</fieldset>
+		<fieldset>
+			<label>Repeat</label>
+			<select id="EditTaskRepeat" name="repeat">
+				{! for (var repeat in Repeat) { !}
+					<option {!= (Repeat[repeat] == task.repeat)?"selected":"" !} value="{!= Repeat[repeat] !}">{!= repeat !}</option>
+				{! } !}
+			</select>
+		</fieldset>
     </script>
 </div>
 
