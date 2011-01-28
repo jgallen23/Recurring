@@ -39,11 +39,12 @@
 				});
 			});
 			ui.resize(function(width, height) {
-				console.log(height);
 				var container = document.getElementById("PageContainer");
 				container.style.width = width+"px";
 				container.style.height = height+"px";
-				document.querySelector(".Page div[role='content']").style.height = height-42+"px";
+				ui.find(".Page div[role='content']", function(elem) {
+					elem.style.height = (height - 42)+"px";
+				});
 			});
 		</script>
 	</body>
