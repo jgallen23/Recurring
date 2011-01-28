@@ -13,14 +13,17 @@ var EditTaskView = ui.View.extend({
                 getNextDue: function() { 
                     return '';
                 }
-            }
+			},
+			showDelete: (task)
         };
         if (task) {
             data.task = task;
-        }
+			this.find("h1").innerHTML = "Edit Task";
+		} else {
+			this.find("h1").innerHTML = "New Task";
+		}
 		data.dateFormat = this.dateFormat;
 		data.dateFormatBasic = this.dateFormatBasic;
-		console.log(data);
         this.renderAt("[role='content'] form", "jstEditTask", data);
         setTimeout(function () { self.scroller.refresh(); }, 0);
 		this.find("form").onsubmit = function() {

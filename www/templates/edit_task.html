@@ -2,7 +2,7 @@
     <header>
         <button data-action="cancel" class="left">Cancel</button>
         <button data-action="save" class="highlight right">Save</button>
-        <h1>Edit Task</h1>
+        <h1>New Task</h1>
     </header>
     <div role="content">
 		<form></form>
@@ -32,6 +32,9 @@
 				{! } !}
 			</select>
 		</fieldset>
+		{! if (showDelete) { !}
+		<button data-action="deleteTask">Delete</button>
+		{! } !}
     </script>
 </div>
 

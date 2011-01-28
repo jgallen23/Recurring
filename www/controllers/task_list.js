@@ -17,9 +17,11 @@ var TaskListController = ui.PageController.extend({
         var editTaskController = new EditTaskController("EditTask");
         this.slideIn(editTaskController);
     },
-    edit: function(e) {
+    edit: function(e, target) {
         var self = this;
-        var index = e.target.parentNode.getAttribute('data-index');
+		var parent = this.view.findParentWithAttribute(target, "data-index");
+		console.log(parent);
+        var index = parent.getAttribute('data-index');
         var task = self._tasks[index];
         var editTaskController = new EditTaskController("EditTask", task);
         this.slideIn(editTaskController);
