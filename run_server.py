@@ -42,8 +42,9 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             self.send_header('Content-type',    'text/html')
             self.end_headers()
             debug = query.has_key('debug')
+            phonegap = query.has_key("phonegap")
             remote = query['remote'][0] if query.has_key('remote') else ''
-            self.wfile.write(generate_template(debug = debug, remote = remote))
+            self.wfile.write(generate_template(debug = debug, phonegap = phonegap, remote = remote))
             return
         if not self.path.startswith("/www") and not self.path.startswith("/ext"):
             self.path = "/www" + self.path
@@ -55,7 +56,7 @@ def main(args):
     if len(args) >= 2 and args[0] == "generate":
         file = args[1]
         phonegap = True if len(args) == 3 and args[2] == "phonegap" else False
-        tmp = generate_template(debug = False, phonegap = phonegap)
+        tmp = generate_template(debug = False, phonegap = phonegap, remote = "10.0.1.24")
         f = open(file, 'w')
         f.write(tmp)
         f.close()

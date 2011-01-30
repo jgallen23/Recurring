@@ -4,6 +4,7 @@ var EditTaskView = ui.View.extend({
 		this.scroller = new iScroll(this.find("[role='content'] form"), { checkDOMChanges: false, desktopCompatibility: false }); 
     },
     populate: function(task) {
+		var self = this;
         var data = { 
             task: {
                 name: '',
