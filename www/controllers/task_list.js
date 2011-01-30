@@ -34,6 +34,10 @@ var TaskListController = ui.PageController.extend({
         task.complete();
         persistence.add(task);
         persistence.flush(function(tx) {
+			if (ui.browser.isPhoneGap) {
+				plugins.localNotification.cancel(task.id)
+				plugins.localNotification.add({ date: task.due.toString("MM/dd/yyyy HH:mm tt"), message: 'Recurring: '+task.name, action: 'View', id: task.id });
+			}
             self._loadTasks();
         });
     }

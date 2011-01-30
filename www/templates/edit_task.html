@@ -17,6 +17,11 @@
 			<input type="hidden" name="due" value="{!= dateFormatBasic(task.due) !}"/>
 		</fieldset>
 		<fieldset>
+			<label for="EditTaskDueTime">Time</label>
+			<span id="EditTaskDueTime">{!= new Date().addMinutes(2).toString("HH:mm tt") !}</span>
+			<input type="hidden" name="time" value="{!= new Date().addMinutes(2).toString("HH:mm tt") !}"/>
+		</fieldset>
+		<fieldset>
 			<label>Type</label>
 			<select id="EditTaskRepeatType" name="repeatType">
 				<option {!= (RepeatType.afterDue == task.repeatType)?"selected":"" !} value="{!= RepeatType.afterDue !}" >After Due</option>

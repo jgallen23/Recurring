@@ -339,7 +339,7 @@
 		};
 		C9CF596312F2792D0063B76E /* Build Index */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
