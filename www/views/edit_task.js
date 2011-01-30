@@ -1,7 +1,7 @@
 var EditTaskView = ui.View.extend({
     init: function(element) {
         this._super(element);
-		this.scroller = new iScroll(this.find("[role='content'] form"), { checkDOMChanges: false, desktopCompatibility: false }); 
+		this.scroller = new iScroll(this.find("[role='content'] div[role='wrapper']"), { checkDOMChanges: false, desktopCompatibility: false }); 
     },
     populate: function(task) {
 		var self = this;
@@ -25,11 +25,8 @@ var EditTaskView = ui.View.extend({
 		}
 		data.dateFormat = this.dateFormat;
 		data.dateFormatBasic = this.dateFormatBasic;
-        this.renderAt("[role='content'] form", "jstEditTask", data);
+        this.renderAt("[role='content'] div[role='wrapper']", "jstEditTask", data);
         setTimeout(function () { self.scroller.refresh(); }, 0);
-		this.find("form").onsubmit = function() {
-			return false;
-		}
     },
 	dateFormat: function(date) {
 		if (date)
@@ -43,23 +40,19 @@ var EditTaskView = ui.View.extend({
 	},
     getTaskData: function() {
         var task = {};
-        var form = this.find("form");
 
-        task.name = form.name.value;
-        task.repeatType = form.repeatType.value;
-        task.repeat = form.repeat.value;
-        task.due = Date.parse(form.due.value);
+        task.name = this.find("[name='name']").value;
+        task.repeatType = this.find("[name='repeatType']").value;
+        task.repeat = this.find("[name='repeat']").value;
+        task.due = Date.parse(this.find("[name='due']").value);
         return task;
 	},
 	getDate: function() {
-        var form = this.find("form");
-		return Date.parse(form.due.value);
+		return Date.parse(this.find("[name='due']").value);
 	},
 	setDate: function(dateString) {
-        var form = this.find("form");
 		var date = Date.parse(dateString);
-		
-		form.due.value = this.dateFormatBasic(date);
+		this.find("[name='due']").value = this.dateFormatBasic(date);
 		this.find("#EditTaskDue").innerHTML = this.dateFormat(date);
 	}
 });
