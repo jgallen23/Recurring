@@ -1,9 +1,9 @@
 output_dir: 'www/ui/compressed'
 js:
-  #phonegap_plugins:
-    #files:
-      #- 'ext/phonegap-plugins/iPhone/Badge/Badge.js'
-      #- 'ext/phonegap-plugins/iPhone/ClipboardPlugin/clipboardPlugin.js'
+  phonegap_plugins:
+    files:
+      - 'ext/phonegap-plugins/iPhone/Badge/Badge.js'
+      - 'ext/phonegap-plugins/iPhone/LocalNotification/LocalNotification.js'
   recurring:
     files:
       - 'www/ui/scripts/iscroll.js'

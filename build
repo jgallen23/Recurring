@@ -4,6 +4,7 @@ pushd ext/appui
 sh build
 popd
 cp ext/appui/lib/* www/ui/compressed/
+cp ext/phonegap-plugins/iPhone/LocalNotification/LocalNotification.js www/ui/scripts/
 #python ext/sprite_generator/sprite_generator.py sprites.yaml
 python ext/appui/external/uimin/uimin.py config.yaml
-#python run_server.py generate www/index.html
+python run_server.py generate www/index.html

@@ -25,7 +25,7 @@ def generate_template(debug = False, phonegap = False, remote = ''):
         'js_path': '' if debug else 'ui/compressed',
         'css_files': uimin.get_file_list('config.yaml', 'css', 'recurring', debug = debug, format = "plain"),
         'css_path': '' if debug else 'ui/compressed',
-        'phonegap_plugin_files': [],#uimin.get_file_list('config.yaml', 'js', 'phonegap_plugins', debug = debug),
+        'phonegap_plugin_files': uimin.get_file_list('config.yaml', 'js', 'phonegap_plugins', debug = debug),
         'remote': remote,
     }
     return template.render(**data)
