@@ -19,9 +19,8 @@
 		<fieldset>
 			<label>Type</label>
 			<select id="EditTaskRepeatType" name="repeatType">
-				{! for (var type in RepeatType) { !}
-					<option {!= (RepeatType[type] == task.repeatType)?"selected":"" !} value="{!= RepeatType[type] !}" >{!= type !}</option>
-				{! } !}
+				<option {!= (RepeatType.afterDue == task.repeatType)?"selected":"" !} value="{!= RepeatType.afterDue !}" >After Due</option>
+				<option {!= (RepeatType.afterComplete == task.repeatType)?"selected":"" !} value="{!= RepeatType.afterComplete !}" >After Complete</option>
 			</select>
 		</fieldset>
 		<fieldset>

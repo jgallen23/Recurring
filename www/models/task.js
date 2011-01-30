@@ -1,6 +1,6 @@
 var RepeatType = {
-	every: 0,
-	after: 1
+	afterComplete: 0,
+	afterDue: 1
 }
 var Repeat = {
 	daily: 0,
@@ -20,9 +20,9 @@ var Task = persistence.define('Task', {
 });
 Task.prototype.getNextDue = function() {
     var d;
-	if (this.repeatType == RepeatType.every) 
+	if (this.repeatType == RepeatType.afterDue) 
 		d = this.due || Date.today();
-	else if (this.repeatType == RepeatType.after)
+	else if (this.repeatType == RepeatType.afterComplete)
 		d = Date.today();
 	
 	switch(this.repeat) {
