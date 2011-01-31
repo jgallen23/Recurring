@@ -9,10 +9,23 @@ var TaskListController = ui.PageController.extend({
     _loadTasks: function() {
         var self = this;
         Task.all().order("due", true).list(null, function(tasks) {
+			console.log("Task Count: "+tasks.length);
             self._tasks = tasks;
             self.view.render(tasks);
+			self._updateBadge();
         });
     },
+	_updateBadge: function() {
+		if (ui.browser.isPhoneGap) {
+			var todayCount = 0;
+			this._tasks.forEach(function(item) {
+				if (item.isDueToday())
+					todayCount++;
+			});
+			console.log("Badge: "+todayCount);
+			plugins.badge.set(todayCount);
+		}
+	},
     add: function(e) {
         var editTaskController = new EditTaskController("EditTask");
         this.slideIn(editTaskController);
@@ -20,7 +33,6 @@ var TaskListController = ui.PageController.extend({
     edit: function(e, target) {
         var self = this;
 		var parent = this.view.findParentWithAttribute(target, "data-index");
-		console.log(parent);
         var index = parent.getAttribute('data-index');
         var task = self._tasks[index];
         var editTaskController = new EditTaskController("EditTask", task);
@@ -36,7 +48,7 @@ var TaskListController = ui.PageController.extend({
         persistence.flush(function(tx) {
 			if (ui.browser.isPhoneGap) {
 				plugins.localNotification.cancel(task.id)
-				plugins.localNotification.add({ date: task.due.toString("MM/dd/yyyy HH:mm tt"), message: 'Recurring: '+task.name, action: 'View', id: task.id });
+				plugins.localNotification.add({ date: task.due.toString("MM/dd/yyyy hh:mm tt"), message: task.name, action: 'View', id: task.id });
 			}
             self._loadTasks();
         });

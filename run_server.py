@@ -56,7 +56,7 @@ def main(args):
     if len(args) >= 2 and args[0] == "generate":
         file = args[1]
         phonegap = True if len(args) == 3 and args[2] == "phonegap" else False
-        tmp = generate_template(debug = False, phonegap = phonegap, remote = "10.0.1.24")
+        tmp = generate_template(debug = False, phonegap = phonegap)#, remote = "localhost")
         f = open(file, 'w')
         f.write(tmp)
         f.close()

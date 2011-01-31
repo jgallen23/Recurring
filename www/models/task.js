@@ -62,11 +62,14 @@ Task.prototype.undoComplete = function() {
 	this.due = this.lastDue;
 }
 Task.prototype.isDueToday = function() {
-	return (this.due.clearTime().getTime() == Date.today().getTime());
+	var d = new Date(this.due.getTime()).clearTime().getTime();
+	return (d == Date.today().getTime());
 }
 Task.prototype.isDueTomorrow = function() {
-	return (this.due.clearTime().getTime() == Date.today().addDays(1).getTime());
+	var d = new Date(this.due.getTime()).clearTime().getTime();
+	return (d == Date.today().addDays(1).getTime());
 }
 Task.prototype.isOverdue = function() {
-	return ((Date.today().getTime() - this.due.clearTime().getTime()) > 0) 
+	var d = new Date(this.due.getTime()).clearTime().getTime();
+	return ((Date.today().getTime() - d) > 0) 
 }

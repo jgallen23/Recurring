@@ -9,28 +9,28 @@
     </div>
     <script type="text/html" id="jstEditTask">
 		<fieldset>
-			<input id="EditTaskName" name="name" type="text" placeholder="Enter Task Name" value="{!= task.name !}"/>
+			<input name="name" type="text" placeholder="Enter Task Name" value="{!= task.name !}"/>
 		</fieldset>
 		<fieldset>
-			<label for="EditTaskDue">Due</label>
+			<label data-action="setDate">Due</label>
 			<span id="EditTaskDue" data-action="setDate">{!= dateFormat(task.due) !}</span>
 			<input type="hidden" name="due" value="{!= dateFormatBasic(task.due) !}"/>
 		</fieldset>
 		<fieldset>
-			<label for="EditTaskDueTime">Time</label>
-			<span id="EditTaskDueTime">{!= new Date().addMinutes(2).toString("HH:mm tt") !}</span>
-			<input type="hidden" name="time" value="{!= new Date().addMinutes(2).toString("HH:mm tt") !}"/>
+			<label>Time</label>
+			<span id="EditTaskTime" data-action="setTime">{!= task.due.toString("hh:mm tt") !}</span>
+			<input type="hidden" name="time" value="{!= task.due.toString("hh:mm tt") !}"/>
 		</fieldset>
 		<fieldset>
 			<label>Type</label>
-			<select id="EditTaskRepeatType" name="repeatType">
+			<select name="repeatType">
 				<option {!= (RepeatType.afterDue == task.repeatType)?"selected":"" !} value="{!= RepeatType.afterDue !}" >After Due</option>
 				<option {!= (RepeatType.afterComplete == task.repeatType)?"selected":"" !} value="{!= RepeatType.afterComplete !}" >After Complete</option>
 			</select>
 		</fieldset>
 		<fieldset>
 			<label>Repeat</label>
-			<select id="EditTaskRepeat" name="repeat">
+			<select name="repeat">
 				{! for (var repeat in Repeat) { !}
 					<option {!= (Repeat[repeat] == task.repeat)?"selected":"" !} value="{!= Repeat[repeat] !}">{!= repeat !}</option>
 				{! } !}

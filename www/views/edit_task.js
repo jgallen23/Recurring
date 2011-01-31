@@ -10,7 +10,7 @@ var EditTaskView = ui.View.extend({
                 name: '',
                 repeatType: '',
                 repeat: '',
-                due: Date.today(),
+                due: Date.parse("8:00 AM"),
                 getNextDue: function() { 
                     return '';
                 }
@@ -23,6 +23,7 @@ var EditTaskView = ui.View.extend({
 		} else {
 			this.find("h1").innerHTML = "New Task";
 		}
+		console.log(data.task.due);
 		data.dateFormat = this.dateFormat;
 		data.dateFormatBasic = this.dateFormatBasic;
         this.renderAt("[role='content'] div[role='wrapper']", "jstEditTask", data);
@@ -54,5 +55,12 @@ var EditTaskView = ui.View.extend({
 		var date = Date.parse(dateString);
 		this.find("[name='due']").value = this.dateFormatBasic(date);
 		this.find("#EditTaskDue").innerHTML = this.dateFormat(date);
+	},
+	getTime: function() {
+		return Date.parse(this.find("[name='time']").value);
+	},
+	setTime: function(timeString) {
+		this.find("[name='time']").value = timeString;
+		this.find("#EditTaskTime").innerHTML = timeString;
 	}
 });

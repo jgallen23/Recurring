@@ -33,6 +33,7 @@
 		305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */; };
 		307D28A2123043360040C0FA /* PhoneGapBuildSettings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 307D28A1123043350040C0FA /* PhoneGapBuildSettings.xcconfig */; };
 		30E1352710E2C1420031B30D /* PhoneGap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E1352610E2C1420031B30D /* PhoneGap.plist */; };
+		76A3274912F624E5009449AF /* Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A3274812F624E5009449AF /* Badge.m */; };
 		C94E468F12F4D965009A8A3C /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C94E468E12F4D965009A8A3C /* LocalNotification.m */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,8 @@
 		307D28A1123043350040C0FA /* PhoneGapBuildSettings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = PhoneGapBuildSettings.xcconfig; sourceTree = "<group>"; };
 		30E1352610E2C1420031B30D /* PhoneGap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PhoneGap.plist; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Recurring_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recurring_Prefix.pch; sourceTree = "<group>"; };
+		76A3274712F624E5009449AF /* Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Badge.h; path = "../ext/phonegap-plugins/iPhone/Badge/Badge.h"; sourceTree = SOURCE_ROOT; };
+		76A3274812F624E5009449AF /* Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Badge.m; path = "../ext/phonegap-plugins/iPhone/Badge/Badge.m"; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Recurring-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Recurring-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		C94E468D12F4D965009A8A3C /* LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalNotification.h; path = "../ext/phonegap-plugins/iPhone/LocalNotification/LocalNotification.h"; sourceTree = SOURCE_ROOT; };
 		C94E468E12F4D965009A8A3C /* LocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalNotification.m; path = "../ext/phonegap-plugins/iPhone/LocalNotification/LocalNotification.m"; sourceTree = SOURCE_ROOT; };
@@ -218,6 +221,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				76A3274712F624E5009449AF /* Badge.h */,
+				76A3274812F624E5009449AF /* Badge.m */,
 				C94E468D12F4D965009A8A3C /* LocalNotification.h */,
 				C94E468E12F4D965009A8A3C /* LocalNotification.m */,
 			);
@@ -361,6 +366,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* RecurringAppDelegate.m in Sources */,
 				C94E468F12F4D965009A8A3C /* LocalNotification.m in Sources */,
+				76A3274912F624E5009449AF /* Badge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
