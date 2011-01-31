@@ -1,6 +1,6 @@
 var RepeatType = {
-	afterComplete: 0,
-	afterDue: 1
+	afterComplete: 1,
+	afterDue: 0
 }
 var Repeat = {
 	daily: 0,
