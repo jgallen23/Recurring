@@ -41,7 +41,6 @@ var TaskListController = ui.PageController.extend({
     complete: function(e) {
         var self = this;
         var index = e.target.parentNode.getAttribute('data-index');
-        console.log('complete', index);
         var task = self._tasks[index];
         task.complete();
         persistence.add(task);

@@ -6,6 +6,8 @@ js:
       - 'ext/phonegap-plugins/iPhone/LocalNotification/LocalNotification.js'
   recurring:
     files:
+      - 'www/ui/scripts/weinre.js'
+      - 'www/views/mobile_fix.js'
       - 'www/ui/scripts/iscroll.js'
       - 'www/ui/scripts/spinningwheel.js'
       - 'www/ui/scripts/date.js'
