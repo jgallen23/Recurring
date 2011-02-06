@@ -18,12 +18,21 @@ var TaskListController = ui.PageController.extend({
 	_updateBadge: function() {
 		if (ui.browser.isPhoneGap) {
 			var todayCount = 0;
+            var tomorrowCount = 0;
 			this._tasks.forEach(function(item) {
-				if (item.isDueToday())
+				if (item.isDueToday() || item.isOverdue())
 					todayCount++;
+                else if (item.isDueTomorrow())
+                    tomorrowCount++;
 			});
 			console.log("Badge: "+todayCount);
 			plugins.badge.set(todayCount);
+            plugins.localNotification.cancel("tomorrow");
+            plugins.localNotification.add({
+                date: Date.today().addDays(1).toString("MM/dd/yyyy hh:mm tt"),
+                badge: todayCount+tomorrowCount,
+                id: "tomorrow"
+            });
 		}
 	},
     add: function(e) {
