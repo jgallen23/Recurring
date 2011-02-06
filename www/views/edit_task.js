@@ -45,7 +45,7 @@ var EditTaskView = ui.View.extend({
         task.name = this.find("[name='name']").value;
         task.repeatType = this.find("[name='repeatType']").value;
         task.repeat = this.find("[name='repeat']").value;
-        task.due = Date.parse(this.find("[name='due']").value + " " + this.find("[name='time']").value);
+        task.due = Date.parse(this.find("[name='due']").value);// + " " + this.find("[name='time']").value);
         return task;
 	},
 	getDate: function() {

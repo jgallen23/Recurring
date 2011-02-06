@@ -16,11 +16,13 @@
 			<span id="EditTaskDue" data-action="setDate">{!= dateFormat(task.due) !}</span>
 			<input type="hidden" name="due" value="{!= dateFormatBasic(task.due) !}"/>
 		</fieldset>
+        <!--
 		<fieldset>
 			<label>Time</label>
 			<span id="EditTaskTime" data-action="setTime">{!= task.due.toString("hh:mm tt") !}</span>
 			<input type="hidden" name="time" value="{!= task.due.toString("hh:mm tt") !}"/>
 		</fieldset>
+        --!>
 		<fieldset>
 			<label>Type</label>
 			<select name="repeatType">
