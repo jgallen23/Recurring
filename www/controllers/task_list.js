@@ -64,5 +64,8 @@ var TaskListController = ui.PageController.extend({
 			}
             self._loadTasks();
         });
+    },
+    weinre: function() {
+        startWeinre();
     }
 });
