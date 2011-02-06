@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "PhoneGapDelegate.h"
+#import "ApplicationStatus.h"
 
 @interface RecurringAppDelegate : PhoneGapDelegate {
+	ApplicationStatus *_applicationStatus;
 }
 
 @end

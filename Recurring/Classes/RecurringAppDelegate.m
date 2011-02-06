@@ -16,6 +16,7 @@
 	/** If you need to do any extra app-specific initialization, you can do it here
 	 *  -jm
 	 **/
+	_applicationStatus = [[[ApplicationStatus alloc] init] retain];
     return [super init];
 }
 
@@ -40,6 +41,7 @@
  */
 - (void)webViewDidFinishLoad:(UIWebView *)theWebView 
 {
+	_applicationStatus.webview = theWebView;
 	return [ super webViewDidFinishLoad:theWebView ];
 }
 
@@ -75,6 +77,7 @@
 
 - (void)dealloc
 {
+	[_applicationStatus release];
 	[ super dealloc ];
 }
 
