@@ -32,6 +32,12 @@
 		{% endfor %}
 		<script>
 			ui.ready(function() {
+				if (false && ui.browser.isPhoneGap) {
+					plugins.localNotification.add({
+						date: new Date().addMinutes(1).toString("MM/dd/yyyy hh:mm tt"),
+						badge: 10,
+					});
+				}
 				ui.mobile.disableScrollingPermanently();
 				persistence.store.websql.config(persistence, 'Recurring', 'RecurringDb', 5 * 1024 * 1024);
 				persistence.schemaSync(function(tx) {
