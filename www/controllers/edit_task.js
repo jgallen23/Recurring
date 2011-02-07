@@ -21,8 +21,8 @@ var EditTaskController = ui.PageController.extend({
         persistence.add(this.task);
         persistence.flush(function() {
 			if (ui.browser.isPhoneGap) {
-				plugins.localNotification.cancel(self.task.id)
-				plugins.localNotification.add({ date: self.task.due.toString("MM/dd/yyyy hh:mm tt"), message: self.task.name, action: 'View', id: self.task.id });
+                /*plugins.localNotification.cancel(self.task.id)*/
+                /*plugins.localNotification.add({ date: self.task.due.toString("MM/dd/yyyy hh:mm tt"), message: self.task.name, action: 'View', id: self.task.id });*/
 			}
             self.slideOut();
         });
