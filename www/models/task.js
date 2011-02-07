@@ -16,7 +16,8 @@ var Task = persistence.define('Task', {
 	due: 'DATE',
 	repeatType: 'INT',
 	repeat: 'INT',
-	lastDue: 'DATE'
+	lastDue: 'DATE',
+    reminder: 'DATE'
 });
 Task.prototype.getNextDue = function() {
     var d;
