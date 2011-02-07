@@ -23,7 +23,6 @@ var EditTaskView = ui.View.extend({
 		} else {
 			this.find("h1").innerHTML = "New Task";
 		}
-		console.log(data.task.due);
 		data.dateFormat = this.dateFormat;
 		data.dateFormatBasic = this.dateFormatBasic;
         this.renderAt("[role='content'] div[role='wrapper']", "jstEditTask", data);
