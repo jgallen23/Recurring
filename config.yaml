@@ -3,13 +3,13 @@ js:
   phonegap_plugins:
     files:
       - 'ext/phonegap-plugins/iPhone/Badge/Badge.js'
+      - 'ext/phonegap-plugins/iPhone/DatePicker/DatePicker.js'
       - 'ext/phonegap-plugins/iPhone/LocalNotification/LocalNotification.js'
   recurring:
     files:
       - 'www/ui/scripts/weinre.js'
       - 'www/views/mobile_fix.js'
       - 'www/ui/scripts/iscroll.js'
-      - 'www/ui/scripts/spinningwheel.js'
       - 'www/ui/scripts/date.js'
       - 'www/ui/scripts/pretty.js'
       - 'www/models/task.js'
@@ -20,7 +20,6 @@ js:
 css:
   recurring:
     files:
-      - 'www/ui/stylesheets/spinningwheel.css'
       - 'www/ui/stylesheets/common.css'
       - 'www/ui/stylesheets/task_list.css'
       - 'www/ui/stylesheets/edit_task.css'

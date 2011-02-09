@@ -35,6 +35,7 @@
 		30E1352710E2C1420031B30D /* PhoneGap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E1352610E2C1420031B30D /* PhoneGap.plist */; };
 		76A3274912F624E5009449AF /* Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A3274812F624E5009449AF /* Badge.m */; };
 		C94E468F12F4D965009A8A3C /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C94E468E12F4D965009A8A3C /* LocalNotification.m */; };
+		C978E33D130255B000057B91 /* DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C978E33C130255B000057B91 /* DatePicker.m */; };
 		C98479BD12FE2D4B00448A3E /* ApplicationStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = C98479BC12FE2D4B00448A3E /* ApplicationStatus.m */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,8 @@
 		8D1107310486CEB800E47090 /* Recurring-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Recurring-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		C94E468D12F4D965009A8A3C /* LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalNotification.h; path = "../ext/phonegap-plugins/iPhone/LocalNotification/LocalNotification.h"; sourceTree = SOURCE_ROOT; };
 		C94E468E12F4D965009A8A3C /* LocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalNotification.m; path = "../ext/phonegap-plugins/iPhone/LocalNotification/LocalNotification.m"; sourceTree = SOURCE_ROOT; };
+		C978E33B130255B000057B91 /* DatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePicker.h; path = "../ext/phonegap-plugins/iPhone/DatePicker/DatePicker.h"; sourceTree = SOURCE_ROOT; };
+		C978E33C130255B000057B91 /* DatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePicker.m; path = "../ext/phonegap-plugins/iPhone/DatePicker/DatePicker.m"; sourceTree = SOURCE_ROOT; };
 		C98479BB12FE2D4B00448A3E /* ApplicationStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplicationStatus.h; path = "../ext/phonegap-plugins/iPhone/ApplicationStatus/ApplicationStatus.h"; sourceTree = SOURCE_ROOT; };
 		C98479BC12FE2D4B00448A3E /* ApplicationStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplicationStatus.m; path = "../ext/phonegap-plugins/iPhone/ApplicationStatus/ApplicationStatus.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -224,6 +227,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				C978E33B130255B000057B91 /* DatePicker.h */,
+				C978E33C130255B000057B91 /* DatePicker.m */,
 				C98479BB12FE2D4B00448A3E /* ApplicationStatus.h */,
 				C98479BC12FE2D4B00448A3E /* ApplicationStatus.m */,
 				76A3274712F624E5009449AF /* Badge.h */,
@@ -373,6 +378,7 @@
 				C94E468F12F4D965009A8A3C /* LocalNotification.m in Sources */,
 				76A3274912F624E5009449AF /* Badge.m in Sources */,
 				C98479BD12FE2D4B00448A3E /* ApplicationStatus.m in Sources */,
+				C978E33D130255B000057B91 /* DatePicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

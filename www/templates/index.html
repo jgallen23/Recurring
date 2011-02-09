@@ -33,6 +33,9 @@
 		<script>
 			ui.ready(function() {
 				if (false && ui.browser.isPhoneGap) {
+					plugins.datePicker.show({ mode: 'date', date: Date.today().addDays(5) }, function(d) {
+						console.log("callback:"+d);
+					});
 					plugins.localNotification.add({
 						date: new Date().addMinutes(1).toString("MM/dd/yyyy hh:mm tt"),
 						badge: 10,

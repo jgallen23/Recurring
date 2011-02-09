@@ -28,6 +28,16 @@ var EditTaskController = ui.PageController.extend({
         });
     },
     setDate: function() {
+        if (ui.browser.isPhoneGap) {
+            var self = this;
+            var selectedDate = this.view.getDate();
+            plugins.datePicker.show({ mode: 'date', date: selectedDate }, function(date) {
+                var d = date.toString("MM/dd/yy")
+                self.view.setDate(d);
+            });
+        }
+    },
+    setDateOld: function() {
 		var months = {};
 		var days = {};
 		var years = {};
