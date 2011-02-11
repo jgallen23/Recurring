@@ -6,12 +6,14 @@
 #TaskList li.help { padding: 10px; height: auto;  }
 
 input[type='checkbox'] {
+	content: ' ';
     background: #fff;
     height: 24px;
     width: 24px;
     -webkit-appearance: none;
     -webkit-border-radius: 4px;
-    -webkit-box-shadow: inset 0 0 2px 2px #888;
+	border: 1px solid #999;
+    -webkit-box-shadow: inset 0 0 2px 1px #888;
 }
 
 input[type='checkbox']:checked {
@@ -20,13 +22,16 @@ input[type='checkbox']:checked {
 }
 
 input[type='checkbox']:checked:after {
-    content: ' ';
+    content: '\2714';
+	font-family: 'Helvetica';
+	font-size: 26px;
+	color: #4FC936;
+	text-align:center;
     display: block;
     width: 14px;
     height: 14px;
-    background: blue;
     position: relative;
-    top: 3px;
-    left: 3px;
+	top: -10px;
+    left: -1px;
     -webkit-border-radius: 2px;
 }
