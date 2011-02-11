@@ -32,11 +32,14 @@ var TaskListController = ui.PageController.extend({
 			console.log("Badge: "+todayCount);
 			plugins.badge.set(todayCount);
             plugins.localNotification.cancel("tomorrow");
-            plugins.localNotification.add({
-                date: Date.today().addDays(1).toString("MM/dd/yyyy hh:mm tt"),
-                badge: todayCount+tomorrowCount,
-                id: "tomorrow"
-            });
+			var tBadge = todayCount+tomorrowCount;
+			if (tBadge != 0) {
+				plugins.localNotification.add({
+					date: Date.today().addDays(1).toString("MM/dd/yyyy hh:mm tt"),
+					badge: tBadge,
+					id: "tomorrow"
+				});
+			}
 		}
 	},
     add: function(e) {
