@@ -30,7 +30,7 @@ var EditTaskView = ui.View.extend({
     },
 	dateFormat: function(date) {
 		if (date)
-			return date.toString("MMMM dd, yyyy");
+			return date.toString("ddd, MMM dd, yyyy");
 		return "";
 	},
 	dateFormatBasic: function(date) {
