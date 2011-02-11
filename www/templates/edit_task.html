@@ -34,7 +34,7 @@
 			<label>Repeat</label>
 			<select name="repeat">
 				{! for (var repeat in Repeat) { !}
-					<option {!= (Repeat[repeat] == task.repeat)?"selected":"" !} value="{!= Repeat[repeat] !}">{!= repeat !}</option>
+					<option {!= (Repeat[repeat] == task.repeat)?"selected":"" !} value="{!= Repeat[repeat] !}">{!= repeat[0].toUpperCase() !}{!= repeat.substr(1, repeat.length-1) !}</option>
 				{! } !}
 			</select>
 		</fieldset>
