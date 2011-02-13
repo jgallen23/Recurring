@@ -35,7 +35,7 @@ var TaskListController = ui.PageController.extend({
 			var tBadge = todayCount+tomorrowCount;
 			if (tBadge != 0) {
 				plugins.localNotification.add({
-					date: Date.today().addDays(1).toString("MM/dd/yyyy hh:mm tt"),
+					date: Date.today().addHours(7).addDays(1).toString("MM/dd/yyyy hh:mm tt"),
 					badge: tBadge,
 					id: "tomorrow"
 				});
