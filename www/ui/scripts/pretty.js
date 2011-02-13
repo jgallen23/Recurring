@@ -12,6 +12,16 @@ var prettyDate = function(date, format) {
 			return "Tomorrow";
 		case -7:
 			return "Next Week";
+		case -2: 
+			return "2 Days";
+		case -3:
+			return "3 Days";
+		case -4:
+			return "4 Days";
+		case -5:
+			return "5 Days";
+		case -6:
+			return "6 Days";
 		default:
 			return date.toString(format);
 	}
