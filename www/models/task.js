@@ -3,10 +3,10 @@ var RepeatType = {
 	afterDue: 0
 }
 var Repeat = {
-	daily: 0,
-	weekly: 1,
-	monthly: 2,
-	yearly: 3,
+	day: 0,
+	week: 1,
+	month: 2,
+	year: 3,
 	weekday: 4
 }
 
@@ -27,16 +27,16 @@ Task.prototype.getNextDue = function() {
 		d = Date.today();
 	
 	switch(this.repeat) {
-		case Repeat.daily:
+		case Repeat.day:
 			d = d.addDays(1);
 			break;
-		case Repeat.weekly:
+		case Repeat.week:
 			d = d.addWeeks(1);
 			break;
-		case Repeat.monthly:
+		case Repeat.month:
 			d = d.addMonths(1);
 			break;
-		case Repeat.yearly:
+		case Repeat.year:
 			d = d.addYears(1);
 			break;
 		case Repeat.weekday:

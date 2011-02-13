@@ -12,7 +12,15 @@
 			<input name="name" type="text" placeholder="Enter Task Name" value="{!= task.name !}"/>
 		</fieldset>
 		<fieldset>
-			<label data-action="setDate">Due</label>
+			<label>Every</label>
+			<select name="repeat">
+				{! for (var repeat in Repeat) { !}
+					<option {!= (Repeat[repeat] == task.repeat)?"selected":"" !} value="{!= Repeat[repeat] !}">{!= repeat[0].toUpperCase() !}{!= repeat.substr(1, repeat.length-1) !}</option>
+				{! } !}
+			</select>
+		</fieldset>
+		<fieldset>
+			<label data-action="setDate">Start On</label>
 			<span id="EditTaskDue" data-action="setDate">{!= dateFormat(task.due) !}</span>
 			<input type="hidden" name="due" value="{!= dateFormatBasic(task.due) !}"/>
 		</fieldset>
@@ -24,18 +32,10 @@
 		</fieldset>
         --!>
 		<fieldset>
-			<label>Type</label>
+			<label>Recur</label>
 			<select name="repeatType">
-				<option {!= (RepeatType.afterDue == task.repeatType)?"selected":"" !} value="{!= RepeatType.afterDue !}" >After Due</option>
-				<option {!= (RepeatType.afterComplete == task.repeatType)?"selected":"" !} value="{!= RepeatType.afterComplete !}" >After Complete</option>
-			</select>
-		</fieldset>
-		<fieldset>
-			<label>Repeat</label>
-			<select name="repeat">
-				{! for (var repeat in Repeat) { !}
-					<option {!= (Repeat[repeat] == task.repeat)?"selected":"" !} value="{!= Repeat[repeat] !}">{!= repeat[0].toUpperCase() !}{!= repeat.substr(1, repeat.length-1) !}</option>
-				{! } !}
+				<option {!= (RepeatType.afterDue == task.repeatType)?"selected":"" !} value="{!= RepeatType.afterDue !}" >Regularly</option>
+				<option {!= (RepeatType.afterComplete == task.repeatType)?"selected":"" !} value="{!= RepeatType.afterComplete !}" >After Completion</option>
 			</select>
 		</fieldset>
 		{! if (showDelete) { !}
