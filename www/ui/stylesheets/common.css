@@ -30,3 +30,20 @@ button { -webkit-appearance: none; border: 0; background: 0; }
         .List li .name { -webkit-box-flex: 1 }
 		.List li .comment { font-size: 17px; color: #385487; font-weight: normal; }
 		.List li .details { background: url(../images/details.png); height: 24px; width: 24px;  background-size: 24px 24px; margin-right: 5px; }
+
+button.Important { display: block;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0, 0.4);
+	padding: 0px 12px;
+	height: 26px;
+	border: 1px solid rgba(0,0,0, 0.4);
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255, 0.35), inset 0 0.5px 1px rgba(0,0,0, 0.25);
+	-webkit-border-radius: 5px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f0838b), to(#ed1414), color-stop(0.5, #e73441), color-stop(0.51, #e10111));
+	line-height: 25px;
+}
+button.Important:active { 
+	background: -webkit-gradient(linear, left top, left bottom, from(#c36a71), to(#b61010), color-stop(0.5, #b4000d), color-stop(0.51, #b62832));
+}

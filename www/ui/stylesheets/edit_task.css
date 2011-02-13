@@ -9,3 +9,5 @@
     #EditTask input,
 	#EditTask span { -webkit-appearance: none; border: 0; font-size: 20px; padding: 0; margin: 0; }
 	#EditTask span { display: block; }
+
+	#EditTask button.Important { margin: 10px auto; width: 150px;}
