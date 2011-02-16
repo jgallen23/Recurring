@@ -6,7 +6,8 @@ var TaskListView  = ui.View.extend({
     render: function(tasks) {
         var self = this;
         var data = { tasks: tasks };
-        this.renderAt("[role='content'] ul", "jstTaskList", data);
-        setTimeout(function () { self.scroller.refresh(); }, 0);
+        this.renderAt("[role='content'] ul", "jstTaskList", data, function() {
+			setTimeout(function () { self.scroller.refresh(); }, 100);
+		});
     }
 });

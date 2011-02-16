@@ -12,6 +12,7 @@ js:
       - 'www/ui/scripts/iscroll.js'
       - 'www/ui/scripts/date.js'
       - 'www/ui/scripts/pretty.js'
+      - 'www/utilities/notifications.js'
       - 'www/models/task.js'
       - 'www/views/task_list.js'
       - 'www/views/edit_task.js'
