@@ -6,6 +6,7 @@ var TaskListController = ui.PageController.extend({
         this.bind("visible", this._loadTasks);
         var self = this;
         document.addEventListener("applicationActive", function() {
+			console.log("active");
             self._loadTasks();
         });
         this.trigger("visible");
