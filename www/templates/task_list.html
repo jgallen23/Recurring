@@ -21,8 +21,8 @@
 			{! } !}
             <li class="HBox" data-index="{!= i !}" data-id="{!= task.id !}">
                 <input type="checkbox" data-action="complete"/>
-				<div data-action="edit" class="name">
-					{!= task.name || "Task" !}
+				<div data-action="edit" class="item">
+					<div data-action="edit" class="name">{!= task.name || "Task" !}</div>
 					<div data-action="edit" class="comment">Due: {!= prettyDate(task.due) !} (every {!= task.repeatString() !})</div>
 				</div>
                 <button class="details" data-action="edit"></button>
