@@ -5,6 +5,8 @@ button { -webkit-appearance: none; border: 0; background: 0; }
 /* HBox */
 .HBox { display: -webkit-box; }
 
+.Release .DebugOnly { display: none; }
+
 #PageContainer { overflow: hidden; position: relative; }
 
 /* PAGE */

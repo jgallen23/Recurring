@@ -13,7 +13,7 @@
 		<script src="http://{{ remote }}:8081/target/target-script.js"></script>
 		{% endif %}
 	</head>
-    <body class="{% if debug %} Debug{% endif %}">
+	<body class="{% if debug %} Debug{% else %} Release{% endif %}">
 		<div id="PageContainer">
 			{% include "task_list.html" %}
 			{% include "edit_task.html" %}
