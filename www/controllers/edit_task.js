@@ -102,13 +102,18 @@ var EditTaskController = ui.PageController.extend({
 		var msg = "Are you sure you want to delete this task?";
 		var self = this;
 		var d = function(index) {
-			persistence.remove(self.task);
-			persistence.flush(function() {
-				self.slideOut();
-			});
+			console.log(index);
+			if (index == 1) {
+				persistence.remove(self.task);
+				persistence.flush(function() {
+					self.slideOut();
+				});
+			}
 		}
-		if (confirm(msg)) {
-			d(0);
+		if (ui.browser.isPhoneGap) {
+			navigator.notification.confirm(msg, d);
+		} else {
+			if (confirm(msg)) d(1);
 		}
 	}
 });
