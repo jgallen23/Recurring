@@ -3,6 +3,9 @@ var EditTaskView = ui.View.extend({
         this._super(element);
 		this.scroller = new iScroll(this.find("[role='content'] div[role='wrapper']"), { checkDOMChanges: false, desktopCompatibility: false }); 
     },
+	destroy: function() {
+		this.scroller.destroy();
+	},
     populate: function(task) {
 		var self = this;
         var data = { 
