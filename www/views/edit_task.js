@@ -64,5 +64,10 @@ var EditTaskView = ui.View.extend({
 	setTime: function(timeString) {
 		this.find("[name='time']").value = timeString;
 		this.find("#EditTaskTime").innerHTML = timeString;
+	},
+	blurAll: function() {
+		this.findAll("input, select", function(elem) {
+			elem.blur();
+		});
 	}
 });

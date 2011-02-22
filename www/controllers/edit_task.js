@@ -31,6 +31,7 @@ var EditTaskController = ui.PageController.extend({
     },
     setDate: function() {
         if (ui.browser.isPhoneGap) {
+			this.view.blurAll();
             var self = this;
             var selectedDate = this.view.getDate();
             plugins.datePicker.show({ mode: 'date', date: selectedDate }, function(date) {
