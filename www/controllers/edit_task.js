@@ -34,7 +34,7 @@ var EditTaskController = ui.PageController.extend({
 			this.view.blurAll();
             var self = this;
             var selectedDate = this.view.getDate();
-            plugins.datePicker.show({ mode: 'date', date: selectedDate }, function(date) {
+            plugins.datePicker.show({ mode: 'date', date: selectedDate, allowOldDates: false }, function(date) {
                 var d = date.toString("MM/dd/yy")
                 self.view.setDate(d);
             });
