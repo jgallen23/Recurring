@@ -22,20 +22,7 @@ var TaskListController = ui.PageController.extend({
     },
 	_updateBadge: function() {
 		if (ui.browser.isPhoneGap) {
-			var todayCount = 0;
-            var tomorrowCount = 0;
-			this._tasks.forEach(function(item) {
-				if (item.isDueToday() || item.isOverdue())
-					todayCount++;
-                else if (item.isDueTomorrow())
-                    tomorrowCount++;
-			});
-			console.log("Badge: "+todayCount);
-			plugins.badge.set(todayCount);
-			//Set tomorrow's badge
-			var d = Date.today().addHours(7).addDays(1);
-			var tBadge = todayCount+tomorrowCount;
-			notifications.add(d, tBadge); 
+			plugins.badge.set(badge.get(Date.today()));
 		}
 	},
     add: function(e) {
@@ -55,12 +42,15 @@ var TaskListController = ui.PageController.extend({
         var index = e.target.parentNode.getAttribute('data-index');
 		setTimeout(function() {
 			var task = self._tasks[index];
+			var oldDate = new Date(task.due.getTime());
 			task.complete();
 			persistence.add(task);
 			persistence.flush(function(tx) {
 				if (ui.browser.isPhoneGap) {
-					/*plugins.localNotification.cancel(task.id)*/
-					/*plugins.localNotification.add({ date: task.due.toString("MM/dd/yyyy hh:mm tt"), message: task.name, action: 'View', id: task.id });*/
+					badge.decrement(oldDate);
+					notifications.set(oldDate);
+					badge.increment(task.due);
+					notifications.set(task.due);
 				}
 				self._loadTasks();
 			});

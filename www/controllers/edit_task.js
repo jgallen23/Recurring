@@ -11,8 +11,13 @@ var EditTaskController = ui.PageController.extend({
     save: function() {
         var self = this;
         var data = this.view.getTaskData();
-        if (!this.task)
+		var update = false;
+        if (!this.task) {
             this.task = new Task();
+		} else {
+			update = true;
+			var oldDate = new Date(this.task.due.getTime());
+		}
         this.task.name = data.name;
         this.task.repeatType = data.repeatType;
         this.task.repeat = data.repeat;
@@ -21,10 +26,12 @@ var EditTaskController = ui.PageController.extend({
         persistence.add(this.task);
         persistence.flush(function() {
 			if (ui.browser.isPhoneGap) {
-				//Set notification if > tomorrow
-				if (self.task.due.getTime() > Date.today().addDays(1).getTime()) {
-					notifications.add(self.task.due, 1);
+				if (update) {
+					badge.decrement(oldDate);
+					notifications.set(oldDate);
 				}
+				badge.increment(self.task.due);
+				notifications.set(self.task.due);
 			}
             self.slideOut();
         });
@@ -105,8 +112,11 @@ var EditTaskController = ui.PageController.extend({
 		var d = function(index) {
 			console.log(index);
 			if (index == 1) {
+				var date = new Date(self.task.due.getTime());
 				persistence.remove(self.task);
 				persistence.flush(function() {
+					badge.decrement(date);
+					notifications.set(date);
 					self.slideOut();
 				});
 			}

@@ -1,13 +1,19 @@
 var notifications = (function() {
 
 	return {
-		add: function(date, badge) {
-			plugins.localNotification.cancel(date.toString("MM/dd"));
-			if (badge != 0) {
+		getKey: function(date) {
+			return date.toString("MM/dd");
+		},
+		cancel: function(date) {
+			plugins.localNotification.cancel(this.getKey(date));
+		},
+		set: function(date) {
+			this.cancel(date);
+			if (parseInt(badge.get(date)) != 0) {
 				plugins.localNotification.add({
 					date: date.toString("MM/dd/yyyy hh:mm tt"),
-					badge: badge,
-					id: date.toString("MM/dd") 
+					badge: badge.get(date),
+					id: this.getKey(date) 
 				});
 			}
 		}
