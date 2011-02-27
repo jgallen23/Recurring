@@ -42,6 +42,6 @@ fi
 
 touch -cm www
 xcodebuild -configuration $CONFIGURATION -sdk iphonesimulator -project $PROJECTNAME.xcodeproj
-ios-sim launch build/$CONFIGURATION-iphonesimulator/$PROJECTNAME.app --stderr $LOGFILE 
+ios-sim launch build/$CONFIGURATION-iphonesimulator/$PROJECTNAME.app --stderr $LOGFILE --exit
 osascript -e "tell application \"iPhone Simulator\" to activate"
 tail -f $LOGFILE 
