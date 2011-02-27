@@ -8,3 +8,4 @@ Recurring/build
 *.perspectivev3
 www/index.html
 www/phonegap.js
+Recurring/stderr.log
