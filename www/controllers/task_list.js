@@ -58,5 +58,16 @@ var TaskListController = ui.PageController.extend({
     },
     weinre: function() {
         startWeinre();
-    }
+	}
 });
+var resetNotifications = function() {
+	localStorage.clear();
+	plugins.localNotification.cancelAll();
+	Task.all().order("due", true).list(null, function(tasks) {
+		for (var i = 0; i < tasks.length; i++) {
+			var task = tasks[i];
+			badge.increment(task.due);
+			notifications.set(task.due);
+		};		
+	});
+}
