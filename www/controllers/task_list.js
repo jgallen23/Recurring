@@ -22,7 +22,13 @@ var TaskListController = ui.PageController.extend({
     },
 	_updateBadge: function() {
 		if (ui.browser.isPhoneGap) {
-			plugins.badge.set(badge.get(Date.today()));
+			var badgeCount = badge.get(Date.today());
+			this._tasks.forEach(function(item, i)  {
+				if (item.isOverdue()) {
+					badgeCount++;
+				}
+			});
+			plugins.badge.set(badgeCount);
 		}
 	},
     add: function(e) {
