@@ -4,11 +4,11 @@ ui.View.prototype.renderAt = function(element, templateId, data, cb) {
 	var s = function() {
 		element.innerHTML = tmp;
 		if (element.innerHTML == "") {
-			console.log("none");
-			setTimeout(s, 200);
+			console.log("redraw");
+			setTimeout(s, 100);
 		} else {
 			if (cb) cb();
 		}
-	}
-	s();
+	};
+	setTimeout(s, 20);
 };
