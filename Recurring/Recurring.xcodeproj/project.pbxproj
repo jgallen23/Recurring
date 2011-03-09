@@ -451,6 +451,40 @@
 			};
 			name = "Ad Hoc";
 		};
+		76F8A2261327DDD400E9F956 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 307D28A1123043350040C0FA /* PhoneGapBuildSettings.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Greg Allen";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-Obj-C",
+				);
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "421D1BB2-7655-491D-B3C5-6E0ACD524F40";
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(PHONEGAPLIB)/Classes/JSON $(PHONEGAPLIB)/Classes";
+			};
+			name = Distribution;
+		};
+		76F8A2271327DDD400E9F956 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/code/Recurring/Recurring/Entitlements.plist";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Recurring_Prefix.pch;
+				INFOPLIST_FILE = "Recurring-Info.plist";
+				PRODUCT_NAME = Recurring;
+			};
+			name = Distribution;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 307D28A1123043350040C0FA /* PhoneGapBuildSettings.xcconfig */;
@@ -499,6 +533,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				76F8A2271327DDD400E9F956 /* Distribution */,
 				76A068B41311A397004296E8 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -509,6 +544,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				76F8A2261327DDD400E9F956 /* Distribution */,
 				76A068B31311A397004296E8 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
