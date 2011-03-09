@@ -1,12 +1,14 @@
 ui.View.prototype.renderAt = function(element, templateId, data, cb) {
 	element = (typeof element === "string")?this.find(element):element;
 	var tmp = ui.template(templateId, data);
+	var tempNode = document.createElement("div");
 	var s = function() {
-		element.innerHTML = tmp;
-		if (element.innerHTML == "") {
+		tempNode.innerHTML = tmp;
+		if (tempNode.innerHTML == "") {
 			console.log("redraw");
 			setTimeout(s, 100);
 		} else {
+			element.innerHTML = tempNode.innerHTML;
 			if (cb) cb();
 		}
 	};
